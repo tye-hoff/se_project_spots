@@ -37,12 +37,27 @@
 
 .profile__edit-btn {
     margin-top: auto;
+    margin-right: auto;
     background-color: #fcf5e5;
+    border: none;
+    cursor: pointer;
+}
+
+.profile__edit-btn:hover {
+    background-color: transparent;
 }
 
 .profile__add-btn {
+    margin-bottom: 0;
     margin-left: auto;
+    margin-top: auto;
     background-color: #fcf5e5;
+    border: none;
+    cursor: pointer;
+}
+
+.profile__add-btn:hover {
+    background-color: transparent;
 }
 
 @media screen and (max-width: 627px) {
