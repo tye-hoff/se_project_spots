@@ -2,6 +2,10 @@
 
 ## **Welcome to my Spots Project!**
 
+Check out my video!:
+
+https://www.loom.com/share/625c683252dc45c89d7f2b3728d62e6b?sid=5b68b46d-dd44-49f2-96a5-b3786c825147
+
 # Overview
 - Brief Description
 - Features
