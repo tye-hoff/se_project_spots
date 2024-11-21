@@ -28,13 +28,13 @@ It was important to invest more time in completing this project, since it requir
 5. Figma.
 6. Hover effects & Buttons.
 
-## 1) *BEM File Structure*
+## 1. *BEM File Structure*
 
 This project and my last feature a BEM file structure. BEM allows me to stay super neat, by clearly separating blocks, elements, and modifiers, granting developers more freedom from bugs, as well as enhanced organization.
 
 BEM ensures that every part of your code has a clear, consistent, and descriptive name. Doing this not only makes your code more organized and easier to read, it also lowers the chance of experiencing conflicts in your code.
 
-## 2) *Flexbox*
+## 2. *Flexbox*
 
 Flexbox proved useful again. In my previous projects, The flexbox property appeared many times due to it's versatile nature. This project was no different. With my knowledge entering this project; Flexbox was the easiest way to form containers for a visual layout that matched the dimensions and styles specified in the design brief.
 
