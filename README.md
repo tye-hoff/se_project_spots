@@ -149,15 +149,14 @@ The utilization of media queries works as a class selector for style rules of th
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
+    width: 288px;
   }
 
   .card__title {
-    font-family: Poppins;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 500;
-    line-height: 16px;
     text-align: left;
-    max-width: fit-content;
   }
 
   .card__like-button {
