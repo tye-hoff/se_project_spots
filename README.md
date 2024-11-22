@@ -106,7 +106,7 @@ This property was novel to me, but became simple to implement with some studying
 
 ## 4. *Media Queries & Interactive display*
 
-This project is made so all the elements are displayed correctly on popular screen sizes. It was important to invest more time in completing this project, since it requires a higher skill level than the previous projects. Attention to detail prevails when designing with an interactive layout in mind.
+As stated earlier, this project is made so all the elements are displayed correctly on popular screen sizes.
 
 In order to achieve a layout that is compatible with all major screen sizes (smartphones, tablets, etc.) the utilization of media queries became necessary in order to acheive these interactive results with both precision and efficiency.
 
