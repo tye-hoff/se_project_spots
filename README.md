@@ -1,6 +1,9 @@
 # Project 3: Spots
 
 ## **Welcome to my Spots Project!**
+Check out my Repository on Github!:
+
+
 
 Check out my video!:
 
@@ -18,6 +21,8 @@ https://www.loom.com/share/625c683252dc45c89d7f2b3728d62e6b?sid=5b68b46d-dd44-49
 It was important to invest more time in completing this project, since it requires a higher skill level than the previous projects.
 
  Attention to detail was necessary when designing with the new concept of an interactive layout in mind.
+
+As far as future updates are concerned; I will most liekly be searching for ways to consolidate my css blocks for easier reading and organization. 
 
 ## Features
 
@@ -60,17 +65,11 @@ Flex box (syntax: display: flex;) was applied to the following blocks and their 
     align-items: center;
     justify-content: space-between;
 }
-.footer__copywright {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
 ```
 
 
 
-* After applying flexbox (display: flex;) to the selectors inside these blocks, all that was left to do was to adjust familiar flexbox style parameters such as justify-content, align-items, flex-direction, Etc.
+* After applying flexbox (display: flex;) to the selectors inside their respective blocks, all that was left to do was to adjust familiar flexbox style parameters such as justify-content, align-items, flex-direction, Etc.
 
 ## 3. *Grid display*
 
@@ -88,10 +87,10 @@ As for the grid display; this technique affords a developer an impressive amount
 * As the syntax states, the "display: grid;" achieves the initial grid display, but it is then specified further with the following rule:
 
 ```css
-    grid-template-columns: repeat(auto-fit, 413px);
+grid-template-columns: repeat(auto-fit, 413px);
 ```
     
-* This rule allows the grid to "auto-fit" to larger, default screen sizes like desktops and tablets to ensure a user friendly layout.
+* This rule allows the grid to "auto-fit" to smaller, default screen sizes like desktops and tablets to ensure a user friendly layout.
 
 * Lastly, to be certain the item stayed centered I implemented the rule:
 ```css    
@@ -126,24 +125,49 @@ The utilization of media queries works as a class selector for style rules of th
 
 * Selectors & Styles BEFORE being nested in Media Querie:
 ```css
+.card {
+  width: 413px;
+  height: 445px;
+  margin: 0;
+}
+
 .card__image {
   height: 413px;
   width: 413px;
+  margin: 0;
   object-fit: cover;
   display: block;
   border-radius: 8px;
 }
 
-
 .card__title {
-  margin: 0, 0;
+  margin: 0;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
+  padding-top: 12px;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  color: #212121;
+}
+
+.card__content {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card__like-button {
+  padding: 12px 12px 8px 12px;
+  margin: 0;
+  background-image: url(../images/like\ icon\ Union.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  opacity: 40%;
+  cursor: pointer;
 }
 ```
 
@@ -151,28 +175,40 @@ The utilization of media queries works as a class selector for style rules of th
 
 ```css
 @media screen and (max-width: 627px) {
+  
+  .card {
+    width: 288px;
+    height: 318px;
+    gap: 12px;
+  }
+
   .card__image {
     height: 288px;
     width: 288px;
   }
 
+  .card__content {
+    width: 288px;
+    height: 18px;
+  }
+
   .card__title {
-    font-family: Poppins, Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
     font-size: 16px;
-    font-weight: 500;
+    line-height: 16px;
     text-align: left;
   }
 
   .card__like-button {
     width: 20px;
     height: 18px;
-    gap: 0px;
-    opacity: 0.4px;
   }
 }
 ```
 
-* From here, I was easily able to delete the desktop styles, to apply the mobile view screen style & size elements inside the curly brackets of our newly included media querie class selectors. 
+* From here, I was easily able to delete the desktop styles, to apply the mobile view screen style & size elements inside the curly brackets of our newly included media querie class selectors.
+
+* Notice the styles values that did not need to be changed for the mobile view in the media querie, were omitted from inclusion within the media querie.
 
 * Doing so allows me to manipulate the mobile phone view and layout, with out compromising the original default layout for the desktop view.
 
@@ -200,12 +236,22 @@ Hover effects on buttons are a staple of webpage design. These small details bri
 
 ```css
 .profile__add-btn {
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-top: auto;
-    background-color: #fcf5e5;
-    border: none;
-    cursor: pointer;
+  padding: 18px 32px 18px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-top: auto;
+  background-color: #212121;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #fcf5e5;
 }
 ```
 
@@ -216,16 +262,16 @@ Hover effects on buttons are a staple of webpage design. These small details bri
 
 ```css
 .profile__add-btn:hover {
-    transition: opacity 0.25s ease-in-out;
-    opacity: 0.7;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
 }
 ```
 
 
-* I'll use the .profile__add-btn inside the "profile.css" blocks for example. The design brief required a smooth transition that changed the opacity of our button.
+* I'll use the ".profile__add-btn" inside the "profile.css" block for an example. The design brief required a smooth transition that changed the opacity of our button.
 
 
-* In order to accomplish this, first I created a pseudo class for the .profile__add-btn using the following syntax:
+* In order to accomplish this, first I created a "hover" pseudo class for the .profile__add-btn using the following syntax:
 
 
 ```css
@@ -239,7 +285,7 @@ Hover effects on buttons are a staple of webpage design. These small details bri
 ```css
 .profile__add-btn:hover {
     transition: opacity 0.25s ease-in-out;
-    opacity: 0.7;
+    opacity: 0.8s;
 }
 ```
 
