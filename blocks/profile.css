@@ -21,6 +21,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
+  color: #212121;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -34,6 +35,8 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
+  color: #212121b2;
+  opacity: 70%;
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -43,18 +46,26 @@
   max-width: 420px;
 }
 
-.profile__edit-btn {
+.profile__edit-btn {  
   margin-top: auto;
   margin-right: auto;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: opacity 0.25s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  opacity: 70%;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
 }
 
 .profile__edit-btn:hover {
   transition: opacity 0.25s ease-in-out;
-  opacity: 0.7;
+  opacity: 2;
 }
 
 .profile__edit-button::before {
@@ -64,12 +75,22 @@
 }
 
 .profile__add-btn {
+  padding: 18px 32px 18px 32px;
+  gap: 8px;
+  border-radius: 8px;
   margin-bottom: 0;
   margin-left: auto;
   margin-top: auto;
-  background-color: #fcf5e5;
+  background-color: #212121;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #fcf5e5;
 }
 
 .profile__add-button::before {
@@ -79,13 +100,14 @@
 }
 .profile__add-btn:hover {
   transition: opacity 0.25s ease-in-out;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;
-    max-width: 288px;
+    width: 288px;
+    height: 274px;
     align-items: center;
     justify-content: center;
     text-align: center;
