@@ -3,11 +3,11 @@
 ## **Welcome to my Spots Project!**
 Check out my Repository on Github!:
 
-https://github.com/tye-hoff/se_project_spots.git
+https://tye-hoff.github.io/se_project_spots/
 
 Check out my video discussing this project in detail on Loom.com!:
 
-https://www.loom.com/share/625c683252dc45c89d7f2b3728d62e6b?sid=5b68b46d-dd44-49f2-96a5-b3786c825147
+https://www.loom.com/share/a0a6b5d974cc48e7be281fa5a984f07b?sid=2100d6e7-f570-404b-aa8c-60931ac7ba1d
 
 # Overview
 - Brief Description
