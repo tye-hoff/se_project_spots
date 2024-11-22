@@ -3,9 +3,9 @@
 ## **Welcome to my Spots Project!**
 Check out my Repository on Github!:
 
+https://github.com/tye-hoff/se_project_spots.git
 
-
-Check out my video!:
+Check out my video discussing this project in detail on Loom.com!:
 
 https://www.loom.com/share/625c683252dc45c89d7f2b3728d62e6b?sid=5b68b46d-dd44-49f2-96a5-b3786c825147
 
@@ -35,9 +35,12 @@ As far as future updates are concerned; I will most liekly be searching for ways
 
 ## 1. *BEM File Structure*
 
-This project and my last feature a BEM file structure. BEM allows me to stay super neat, by clearly separating blocks, elements, and modifiers, granting developers more freedom from bugs, as well as enhanced organization.
+This project and my last feature a BEM file structure. BEM is a simple acronym that stands for:
+* **B**locks    (**B**): *-Represents a self-contained component on a page, (a header, navigation bar, or card).* 
+* **E**lements  (**E**): *-A child component within a block, like a button inside a card or a list item within a navigation menu.*  
+* **M**odifiers (**M**): *-A variation of a block or element, used to change its appearance or behavior, like adding a "disabled" state to a button or a "large" size to a text element.*  
 
-BEM ensures that every part of your code has a clear, consistent, and descriptive name. Doing this not only makes your code more organized and easier to read, it also lowers the chance of experiencing conflicts in your code.
+BEM ensures that every part of your code has a clear, consistent, and descriptive name. Doing this not only makes your code more organized and easier to read, it also lowers the chance of experiencing conflicts in your code. 
 
 ## 2. *Flexbox*
 
