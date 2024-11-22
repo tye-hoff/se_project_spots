@@ -318,8 +318,8 @@ This easy technique consistently delivers rewarding results.
 ### -Profile.css
 
 ![alt text](./images/avatar.jpg)
-1[alt text](./images/pencil-icon.svg)
-1[alt text](./images/plus-icon.svg)
+![alt text](./images/pencil-icon.svg)
+![alt text](./images/plus-icon.svg)
 
 
 ### -Card.css
