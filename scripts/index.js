@@ -25,26 +25,67 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
-
 const profileEditButton = document.querySelector(".profile__edit-btn");
-
-profileEditButton.addEventListener("click", function () {
-  console.log("CLICKED");
-});
+const profileNameElement = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editProfileModalCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editFormElement = editProfileModal.querySelector(".modal__form");
+const editProfileModalCloseBtn =
+  editProfileModal.querySelector(".modal__close-btn");
+const editProfileModalNameInput = editProfileModal.querySelector(
+  "#profile-name-input"
+);
+const editProfileModalDescriptionInput = editProfileModal.querySelector(
+  "#profile-description-input"
+);
 
+const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardNameEl = cardElement.querySelector(".card__title");
+  const cardImages = [
+    " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg ",
+    " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+    " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+    " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+    " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  ];
+
+  cardNameEl.textContent = data.name;
+  // assign values
+
+  return cardElement;
+}
 
 function openModal() {
+  editProfileModalNameInput.value = profileNameElement.textContent;
   editProfileModal.classList.add("modal_opened");
+  editProfileModalDescriptionInput.value = profileDescription.textContent;
 }
 
 function closeModal() {
   editProfileModal.classList.remove("modal_opened");
 }
 
-profileEditButton.addEventListener("click", openModal);
+function handleEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileNameElement.textContent = editProfileModalNameInput.value;
+  profileDescription.textContent;
+  closeModal();
+}
 
+profileEditButton.addEventListener("click", openModal);
 editProfileModalCloseBtn.addEventListener("click", closeModal);
+editFormElement.addEventListener("submit", handleEditFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  cardsList.prepend(cardElement);
+}
