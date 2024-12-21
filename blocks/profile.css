@@ -49,7 +49,6 @@
 .profile__edit-btn {
   margin-top: auto;
   margin-right: auto;
-  background-image: url(../images/button-pencil.svg);
   background-color: transparent;
   border: none;
   cursor: pointer;
