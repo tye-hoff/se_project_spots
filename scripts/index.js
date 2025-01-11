@@ -26,19 +26,20 @@ const initialCards = [
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
+const cardModalButton = document.querySelector(".profile__add-btn");
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editFormElement = editProfileModal.querySelector(".modal__form");
-const editProfileModalCloseBtn =
-  editProfileModal.querySelector(".modal__close-btn");
-const editProfileModalNameInput = editProfileModal.querySelector(
-  "#profile-name-input"
-);
-const editProfileModalDescriptionInput = editProfileModal.querySelector(
-  "#profile-description-input"
-);
+const editProfileModalCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editModalNameInput = editProfileModal.querySelector("#profile-name-input");
+const editModalDescriptionInput = editProfileModal.querySelector("#profile-description-input");
+
+const cardModal = document.querySelector("#add-card-modal");
+const cardForm = cardModal.querySelector(".modal__form");
+const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
+const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -47,40 +48,70 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
-
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardLinkEl = cardElement.querySelector(".card__image");
-  
+  const cardLikeBtn = cardElement.querySelector(".card__like-button");
 
   cardNameEl.textContent = data.name;
   cardLinkEl.src = data.link;
   cardLinkEl.alt = data.name;
 
+  cardLikeBtn.addEventListener("click", () => {
+    cardLikeBtn.classList.toggle("card__like-button_liked");
+  })
+
   return cardElement;
 }
 
-function openModal() {
-  editProfileModalNameInput.value = profileNameElement.textContent;
-  editProfileModal.classList.add("modal_opened");
-  editProfileModalDescriptionInput.value = profileDescription.textContent;
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
 
-function closeModal() {
-  editProfileModal.classList.remove("modal_opened");
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  console.log(editModalNameInput.value);
+  console.log(editModalDescriptionInput.value);
+  const inputValues = { name: editModalNameInput.value, link: editModalDescriptionInput.value };
+  const cardEl = getCardElement(inputValues);
+  cardsList.prepend(cardEl);
+  evt.target.reset();
+  closeModal(cardModal);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileNameElement.textContent = editProfileModalNameInput.value;
   profileDescription.textContent = editProfileModalDescriptionInput.value;
-  closeModal();
+  closeModal(editProfileModal);
 }
 
-profileEditButton.addEventListener("click", openModal);
-editProfileModalCloseBtn.addEventListener("click", closeModal);
+cardModalButton.addEventListener("click", () =>{
+  openModal(cardModal);
+})
+
+cardModalCloseBtn.addEventListener("click", () =>{
+  closeModal(cardModal);
+})
+
+profileEditButton.addEventListener("click", () => {
+  openModal(editProfileModal);
+  editProfileModalNameInput.value = profileNameElement.textContent;
+  editProfileModalDescriptionInput.value = profileDescription.textContent;
+});
+
+editProfileModalCloseBtn.addEventListener("click", () => {
+  closeModal(editProfileModal);
+});
+
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+cardForm.addEventListener("submit", handleAddCardSubmit);
 
-for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
+initialCards.forEach((item) => {
+  console.log(item);
+  const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
-}
+});

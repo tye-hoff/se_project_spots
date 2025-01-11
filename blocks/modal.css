@@ -17,6 +17,20 @@
   visibility: visible;
 }
 
+.modal__content {
+  max-width: 730px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  padding: 36px 50px 32px;
+}
+
+.modal__image {
+  width: 100%;
+}
+
 .modal__container {
   background: #fff;
   max-width: 730px;
