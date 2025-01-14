@@ -35,6 +35,7 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
+                <button type="button" class="card__trash-btn" id="card-trash-btn"></button>
                 <img src="link" alt="name" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title">Mountain house</h2>
@@ -85,8 +86,8 @@
           <button
             type="button"
             id="modal-close-button"
-            class="modal__close-btn">
-          </button>
+            class="modal__close-btn"
+          ></button>
           <h2 class="modal__title">New Post</h2>
           <form name="edit-profile" class="modal__form">
             <label for="add-card-link-input" class="modal__label">
@@ -119,14 +120,14 @@
         <button
           aria-label="close modal"
           class="modal__close modal__close_type_preview"
-          type="button">
-        </button>
-        <img 
-          class="modal__image" 
-          src=" https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg" 
+          type="button"
+        ></button>
+        <img
+          class="modal__image"
+          src=" https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
           alt="Griffin Wooldridge"
         />
-        <p class="modal__caption"></p> 
+        <p class="modal__caption"></p>
       </div>
     </div>
     <script defer src="./scripts/index.js"></script>

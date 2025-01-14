@@ -44,6 +44,8 @@ const cardCaptionInput = cardModal.querySelector("#add-card-name-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+const cardTrashBtn = document.querySelector(".card__trash-btn");
+const editCardEl = document.querySelector("#card-trash-btn");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = document.querySelector(".modal__close_type_preview")
@@ -76,6 +78,10 @@ function getCardElement(data) {
 
   return cardElement;
 }
+
+//cardTrashBtn.forEach(btn => {
+ // btn.addEventListener('click', card-trash-btn);
+//});
 
 function openModal(modal) {
   modal.classList.add("modal_opened");

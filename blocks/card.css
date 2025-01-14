@@ -12,6 +12,23 @@
   border-radius: 8px;
 }
 
+.card__trash-btn {
+  background-image: url(../images/trashbin-gray.svg);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: 10px 10px 0px 371px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.card__trash-btn:hover {
+  background-image: url(../images/trashbin-red.svg);
+}
+
 .card__title {
   max-width: 353px;
   margin: 0;
