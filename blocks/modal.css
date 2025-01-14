@@ -29,11 +29,13 @@
 
 .modal__content_type_image {
   width: 100%;
+  background-color: transparent;
+  border-radius: 8px;
 }
 
 .modal__image {
   width: 100%;
-  object-fit: contain;
+  border-radius: 8px;
   max-width: 80vw;
   max-height: 80vh;
 }
@@ -51,6 +53,22 @@
   gap: 32px;
 }
 
+.modal__caption {
+  display: flex;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #ffffff;
+  background-color: #212121;
+  width: 214px;
+  top: 750px;
+  left: 223px;
+  padding: 4px 8px 4px 8px;
+  border-radius: 8px;
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -65,8 +83,13 @@
 }
 
 .modal__close_type_preview {
+  position: absolute;
   background-image: url(../images/light-close-btn.svg);
-  top: 0;
+  width: 40px;
+  height: 40px;
+  left: 675px;
+  background-color: transparent;
+  border: none;
 }
 
 .modal__close-btn:hover {
