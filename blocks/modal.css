@@ -177,4 +177,8 @@
     top: 12px;
     right: 12px;
   }
+
+  .modal__image {
+    width: 288px;
+  }
 }
