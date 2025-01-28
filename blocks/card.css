@@ -100,5 +100,6 @@
   .card__trash-btn {
     top: 10px;
     left: 246px;
+    margin: 0;
   }
 }
