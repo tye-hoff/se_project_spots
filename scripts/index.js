@@ -47,7 +47,7 @@ const cardsList = document.querySelector(".cards__list");
 const editCardEl = document.querySelector("#card-trash-btn");
 
 const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseBtn = document.querySelector(".modal__close_type_preview")
+const previewModalCloseBtn = document.querySelector(".modal__close-btn_type_preview")
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 
@@ -67,7 +67,7 @@ function getCardElement(data) {
   cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("card__like-button_liked");
   });
-  
+
   cardTrashBtn.addEventListener('click', handleCardDelete);
 
   cardImageEl.addEventListener("click", () => {
