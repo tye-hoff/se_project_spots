@@ -1,3 +1,5 @@
+// todo- pass settings object to the validation functions called in this file - config
+
 const initialCards = [
   {
     name: " Val Thorens",
@@ -38,6 +40,7 @@ const editModalDescriptionInput = editProfileModal.querySelector("#profile-descr
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
+const cardSubmitBtn = cardModal.querySelector(".modal__button");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const cardCaptionInput = cardModal.querySelector("#add-card-name-input");
@@ -97,6 +100,7 @@ function handleAddCardSubmit(evt) {
   const cardEl = getCardElement(inputValues);
   cardsList.prepend(cardEl);
   evt.target.reset();
+  disableButton(cardSubmitBtn);
   closeModal(cardModal);
 }
 
@@ -127,6 +131,7 @@ profileEditButton.addEventListener("click", () => {
   openModal(editProfileModal);
   editModalNameInput.value = profileNameElement.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput]);
 });
 
 editProfileModalCloseBtn.addEventListener("click", () => {
