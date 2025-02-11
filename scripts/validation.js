@@ -1,23 +1,26 @@
 const settings = {
-  formSelector: "modal__form",
+  formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
-  inactiveButtonClass: ".modal__button-disabled",
-  inputErrorClass: ".modal__input_type_error",
-  errorClass: ".modal__error_visible",
+  inactiveButtonClass: "modal__submit-btn-disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
 };
 
-const showInputError = (formElement, inputElement, errorMsg) => {
-  const errorMsgID = inputElement.id + ".error";
-  const errorMsgEl = formElement.querySelector("#" + errorMsgID);
+const showInputError = (formElement, inputElement, errorMsg, config) => {
+  const errorMsgID = `#${inputElement.id}-error`;
+  const errorMsgEl = formElement.querySelector(errorMsgID);
   errorMsgEl.textContent = errorMsg;
-  inputElement.classList.add("modal__input_state_error");
+  errorMsgEl.classList.add(config.errorClass);
+  inputElement.classList.add(config.errorClass);
 };
 
-const hideInputError = (formElement, inputElement) => {
-  const errorMsgID = inputElement.id + ".error";
-  const errorMsgEl = formElement.querySelector("#" + errorMsgID);
+const hideInputError = (formElement, inputElement, config) => {
+  const errorMsgID = `#${inputElement.id}-error`;
+  const errorMsgEl = formElement.querySelector(errorMsgID);
   errorMsgEl.textContent = "";
+  errorMsgEl.classList.remove(config.errorClass);
+  inputElement.classList.remove(config.inputErrorClass);
 };
 
 const checkInputValidity = (formElement, inputElement) => {
@@ -39,13 +42,14 @@ const toggleButtonState = (inputList, buttonElement, config) => {
     disableButton(buttonEl);
   } else {
     buttonElement.disabled = false;
+    buttonElement.classList.remove(config.inactiveButtonClass);
     // remove disabled class
   }
 };
 
-const disableButton = (buttonElement) => {
+const disableButton = (buttonElement, config) => {
+  buttonElement.classList.add(config.inactiveButtonClass);
   buttonElement.disabled = true;
-  // add mod to buttonElement make it gray
 };
 
 const resetValidation = (formElement, inputList) => {
@@ -74,7 +78,7 @@ const setEventListeners = (formElement, config) => {
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formElement) => {
-    setEventListener(formElement, config);
+    setEventListeners(formElement, config);
   });
 };
 

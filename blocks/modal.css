@@ -150,6 +150,7 @@
 }
 
 .modal__error {
+  visibility: hidden;
   display: block;
   margin-top: 8px;
   font-family: Poppins;
@@ -158,6 +159,10 @@
   line-height: 17.6px;
   letter-spacing: 0%;
   color: red;
+}
+
+.modal__error_visible {
+  visibility: visible;
 }
 
 .modal__submit-btn {
