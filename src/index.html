@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <meta name="description" content="Spots" />
     <meta name="keywords" content="Spots" />
     <meta name="author" content="Tyler Hoffmann" />
@@ -13,21 +12,21 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/Logo.svg" alt="header logo" class="header__logo" />
+        <img id="header-logo" alt="header logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="./images/avatar.jpg" alt="Bessie" class="profile__avatar" />
+          <img id="bessie-avatar" alt="Bessie" class="profile__avatar" />
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button class="profile__edit-btn" type="button">
-              <img src="./images/pencil-icon.svg" alt="pencil icon" />
+              <img id="pencil-icon" alt="pencil icon" />
               Edit Profile
             </button>
           </div>
           <button class="profile__add-btn" type="button">
-            <img src="./images/plus-icon.svg" alt="plus icon" />
+            <img id="plus-icon" alt="plus icon" />
             New Post
           </button>
         </section>
@@ -35,7 +34,11 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <button type="button" class="card__trash-btn" id="card-trash-btn"></button>
+                <button
+                  type="button"
+                  class="card__trash-btn"
+                  id="card-trash-btn"
+                ></button>
                 <img src="link" alt="name" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title">Mountain house</h2>
@@ -82,19 +85,24 @@
                 maxlength="200"
                 required
               />
-              <span id="profile-description-input-error" class="modal__error"></span>
+              <span
+                id="profile-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
-            <button type="submit" class="modal__submit-btn modal__submit-btn_disabled">Save</button>
+            <button
+              type="submit"
+              class="modal__submit-btn modal__submit-btn_disabled"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
 
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
-          <button
-            type="button"
-            class="modal__close-btn"
-          ></button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">New Post</h2>
           <form name="edit-profile" class="modal__form">
             <label for="add-card-link-input" class="modal__label">
@@ -123,7 +131,12 @@
               />
               <span id="add-card-name-input-error" class="modal__error"></span>
             </label>
-            <button type="submit" class="modal__submit-btn modal__submit-btn_disabled">Save</button>
+            <button
+              type="submit"
+              class="modal__submit-btn modal__submit-btn_disabled"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
@@ -143,7 +156,5 @@
         <p class="modal__caption"></p>
       </div>
     </div>
-    <script defer src="./scripts/validation.js"></script>
-    <script defer src="./scripts/index.js"></script>
   </body>
 </html>

@@ -1,5 +1,22 @@
-// todo- pass settings object to the validation functions called in this file - config/settings
+// imports
+import "./index.css";
+import headerSrc from "../images/logo.svg";
+import avatarSrc from "../images/avatar.jpg";
+import pencilSrc from "../images/pencil-icon.svg";
+import plusIconSrc from "../images/plus-icon.svg";
+import { enableValidation, settings } from "../scripts/validation.js";
 
+// html src imgs (header logo, avatar, & btn icons)
+const headerImg = document.getElementById("header-logo");
+headerImg.src = headerSrc;
+const avatarImg = document.getElementById("bessie-avatar");
+avatarImg.src = avatarSrc;
+const pencilImg = document.getElementById("pencil-icon");
+pencilImg.src = pencilSrc;
+const plusImg = document.getElementById("plus-icon");
+plusImg.src = plusIconSrc;
+
+// card array
 const initialCards = [
   {
     name: " Val Thorens",
@@ -26,7 +43,7 @@ const initialCards = [
     link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
-
+// modals & cards
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalButton = document.querySelector(".profile__add-btn");
 const profileNameElement = document.querySelector(".profile__name");
@@ -167,3 +184,5 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
 });
+
+enableValidation(settings);
