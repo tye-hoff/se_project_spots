@@ -73,6 +73,7 @@ api
     console.log(userInfo);
     profileNameElement.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
+    console.log(userInfo.name);
 
     // handle user's information
     // set the src of avatar img
