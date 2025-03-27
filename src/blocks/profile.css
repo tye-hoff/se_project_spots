@@ -129,6 +129,10 @@
   opacity: 0.8;
 }
 
+.profile__pencil-img {
+  margin: 0;
+}
+
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;
@@ -184,5 +188,9 @@
   .profile__add-btn {
     margin: 0;
     width: 100%;
+  }
+
+  .profile__pencil-img {
+    padding-left: 7px;
   }
 }
