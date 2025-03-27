@@ -8,7 +8,7 @@ import {
   enableValidation,
   settings,
   disableButton,
-  resetValidation
+  resetValidation,
 } from "../scripts/validation.js";
 import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
@@ -73,7 +73,6 @@ api
     console.log(userInfo);
     profileNameElement.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
-    console.log(userInfo.name);
 
     // handle user's information
     // set the src of avatar img
@@ -147,9 +146,16 @@ function handleCardDelete(cardElement, cardId) {
 
 function handleLike(evt, id) {
   const isLiked = evt.target.classList.contains("card__like-button_liked");
-  api.changeLikeStatus(id, isLiked).then((updatedCard) => {
-    evt.target.classList.toggle("card__like-button_liked", updatedCard.isLiked)
-  }).catch(console.error);
+  api
+    .changeLikeStatus(id, isLiked)
+    .then((updatedCard) => {
+      evt.target.classList.toggle(
+        "card__like-button_liked",
+        updatedCard.isLiked
+      );
+      console.log(isLiked);
+    })
+    .catch(console.error);
 }
 
 function handleImageClick(data) {
@@ -171,6 +177,10 @@ function getCardElement(data) {
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
+
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-button_liked");
+  }
 
   cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
   cardTrashBtn.addEventListener("click", () =>
@@ -228,6 +238,8 @@ function handleAvatarSubmit(evt) {
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       console.log(data.avatar);
+      avatarImg.src = data.avatar;
+      closeModal(avatarModal);
       // set avatar img src
     })
     .catch(console.error);
@@ -242,21 +254,21 @@ function closeModal(modal) {
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   const avatarSubmitBtn = evt.submitter;
-  avatarSubmitBtn.textContent = "Saving...";
-  setButtonText(avatarSubmitBtn, true, "Saving...", "Save");
+  setButtonText(avatarSubmitBtn, true, "Save", "Saving...");
   api
     .editUserInfo({
       name: editModalNameInput.value,
       about: editModalDescriptionInput.value,
     })
     .then((data) => {
-      profileNameElement.textContent = data.editModalNameInput;
-      profileDescription.textContent = data.editModalDescriptionInput;
+      profileNameElement.textContent = data.name;
+      profileDescription.textContent = data.about;
+      console.log(data);
       closeModal(editProfileModal);
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(avatarSubmitBtn, false, "Saving...", "Save");
+      setButtonText(avatarSubmitBtn, false, "Save", "Saving...");
       // avatarSubmitBtn.textContent = "Save";
     });
 }
