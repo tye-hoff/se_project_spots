@@ -173,6 +173,7 @@
   background-color: #212121;
   color: #fcf5e5;
   cursor: pointer;
+  font-family: Poppins;
 }
 
 .modal__submit-btn:hover {

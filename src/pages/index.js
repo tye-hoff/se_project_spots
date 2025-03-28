@@ -73,10 +73,6 @@ api
     console.log(userInfo);
     profileNameElement.textContent = userInfo.name;
     profileDescription.textContent = userInfo.about;
-
-    // handle user's information
-    // set the src of avatar img
-    // set textContent of both textElements
   })
   .catch(console.error);
 
@@ -152,6 +148,7 @@ function handleLike(evt, id) {
       evt.target.classList.toggle(
         "card__like-button_liked",
         updatedCard.isLiked
+        // Position?
       );
       console.log(isLiked);
     })
@@ -166,6 +163,7 @@ function handleImageClick(data) {
 }
 
 function getCardElement(data) {
+  console.log("data", data);
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
@@ -182,7 +180,7 @@ function getCardElement(data) {
     cardLikeBtn.classList.add("card__like-button_liked");
   }
 
-  cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
+  cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id)); //data.id?
   cardTrashBtn.addEventListener("click", () =>
     handleCardDelete(cardElement, data._id)
   );
@@ -216,24 +214,29 @@ function handleEscapePress(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault(settings);
-  console.log(editModalNameInput.value);
-  console.log(editModalDescriptionInput.value);
   const inputValues = {
     name: cardCaptionInput.value,
     link: cardLinkInput.value,
   };
-
-  api.addCard(inputValues).then(() => {
-    const cardEl = getCardElement(inputValues);
-    cardsList.prepend(cardEl);
-    evt.target.reset();
-    disableButton(cardSubmitBtn, settings);
-    closeModal(cardModal, settings);
-  });
+  setButtonText(cardSubmitBtn, true, "Save", "Saving...");
+  api
+    .addCard(inputValues)
+    .then((data) => {
+      const cardEl = getCardElement(data);
+      cardsList.prepend(cardEl);
+      evt.target.reset();
+      disableButton(cardSubmitBtn, settings);
+      closeModal(cardModal, settings);
+    })
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(cardSubmitBtn, false, "Save", "Saving...");
+    });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault(settings);
+  setButtonText(avatarSubmitBtn, true, "Save", "Saving...");
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
@@ -242,7 +245,10 @@ function handleAvatarSubmit(evt) {
       closeModal(avatarModal);
       // set avatar img src
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(avatarSubmitBtn, false, "Save", "Saving...");
+    });
   //
 }
 
@@ -273,7 +279,7 @@ function handleEditFormSubmit(evt) {
     });
 }
 
-// CLICK HANDLERS
+// CLICK HANDLER EVT LISTENERS
 
 // CARD MODAL OPEN/CLOSE
 cardModalButton.addEventListener("click", () => {
@@ -304,6 +310,7 @@ avatarModalCloseBtn.addEventListener("click", () => {
   closeModal(avatarModal);
 });
 
+// PROFILE MODAL OPEN/CLOSE
 profileEditButton.addEventListener("click", () => {
   openModal(editProfileModal);
   editModalNameInput.value = profileNameElement.textContent;
