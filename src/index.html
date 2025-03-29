@@ -12,14 +12,29 @@
   <body>
     <div class="page">
       <header class="header">
-        <img id="header-logo" alt="header logo" class="header__logo" />
+        <!-- <img id="header-logo" alt="header logo" class="header__logo" /> -->
+         <img
+          class="header__logo"
+          src="<%=require('./images/logo.svg')%>"
+          alt="Spots logo"
+          id="header-logo"
+        />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img id="bessie-avatar" alt="Bessie" class="profile__avatar" />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img
+                class="profile__pencil-img"
+                src="<%=require('./images/pencil-icon-white.svg')%>"
+                alt=""
+              />
+            </button>
+            <img id="bessie-avatar" alt="Bessie" class="profile__avatar" />
+          </div>
           <div class="profile__column">
-            <h1 class="profile__name">Bessie Coleman</h1>
-            <p class="profile__description">Civil Aviator</p>
+            <h1 class="profile__name"></h1>
+            <p class="profile__description"></p>
             <button class="profile__edit-btn" type="button">
               <img id="pencil-icon" alt="pencil icon" />
               Edit Profile
@@ -154,6 +169,59 @@
           alt="Griffin Wooldridge"
         />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          id="modal-close-button"
+          class="modal__close-btn"
+        ></button>
+        <h2 class="modal__title">Edit Avatar</h2>
+        <form name="edit-profile" id="edit-avatar-form" class="modal__form">
+          <label for="profile-avatar-input" class="modal__label">
+            Avatar
+            <input
+              id="profile-avatar-input"
+              class="modal__input"
+              type="url"
+              name="avatar"
+              placeholder="avatar goes here"
+              required
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button
+            type="submit"
+            class="modal__submit-btn modal__submit-btn_disabled">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          id="modal-close-button"
+          class="modal__close-btn modal__close-btn_type_preview modal__close-btn_type_preview-del"
+        ></button>
+        <h2 class="modal__title modal__title-del">Are you sure you want to delete this image?</h2>
+        <form name="edit-profile" id="delete-form" class="modal__form modal__form-delete">
+          <button
+            type="submit"
+            class="modal__submit-btn modal__submit-btn-del">
+            Delete
+          </button>
+          <button
+            type="button"
+            class="modal__submit-btn modal__submit-btn-cncl">
+            Cancel
+          </button>
+        </form>
       </div>
     </div>
   </body>
